@@ -30,7 +30,7 @@ module.exports = {
         pool.query('SELECT * FROM student WHERE sid = ?', [req.params.sid])
             .then((data) => {
                 if (data.length > 0) {
-                    res.render('editStudent', { student: data[0] });
+                    res.render('editStudent', { student: data[0], errors: [] }); // Pass empty errors array
                 } else {
                     res.send('Student not found.');
                 }
